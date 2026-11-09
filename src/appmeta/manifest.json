@@ -1,0 +1,9 @@
+{
+  "format_version": 1,
+  "id": "app.robynhub.akvorado-monitor",
+  "name": "Akvorado monitor",
+  "version": "0.1.0",
+  "api_version": "27.12.0",
+  "description": "Akvorado monitor",
+  "author": "Robynhub"
+}

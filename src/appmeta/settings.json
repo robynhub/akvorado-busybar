@@ -1,0 +1,90 @@
+{
+  "format_version": 1,
+  "version": 1,
+  "fields": {
+    "url": {
+      "label": "Akvorado Console URL",
+      "description": "HTTP(S) address of the Akvorado Console API.",
+      "type": "string",
+      "default": "http://akvorado.connesi.it:8081"
+    },
+    "filter": {
+      "label": "Additional traffic filter",
+      "description": "Optional Akvorado filter ANDed with the boundary condition of each screen. TRAFFIC, FLOWS and PEAK use external OR internal; DOWNL uses external; UPL uses internal.",
+      "type": "string",
+      "default": ""
+    },
+    "interval": {
+      "label": "Data refresh (seconds)",
+      "description": "How often to fetch fresh TRAFFIC and FLOWS data from Akvorado. Independent of screen rotation.",
+      "type": "integer",
+      "default": 5,
+      "min": 5,
+      "max": 300,
+      "step": 5
+    },
+    "window_minutes": {
+      "label": "Graph + PEAK window (minutes)",
+      "description": "Historical period for the graph and PEAK value (highest traffic bucket in this period). Default 5 minutes.",
+      "type": "integer",
+      "default": 5,
+      "min": 2,
+      "max": 60,
+      "step": 1
+    },
+    "average_seconds": {
+      "label": "Rate average (seconds)",
+      "description": "Time window for the moving average displayed by TRAFFIC, DOWNL, UPL and FLOWS (default 30 seconds). PEAK is the maximum raw bucket over Graph + PEAK window.",
+      "type": "integer",
+      "default": 30,
+      "min": 5,
+      "max": 120,
+      "step": 5
+    },
+    "auto_rotate": {
+      "label": "Automatically rotate screens",
+      "description": "On: rotate only enabled screens in order TRAFFIC, DOWNL, UPL, FLOWS, PEAK. Off: use the wheel to switch manually.",
+      "type": "boolean",
+      "default": true
+    },
+    "switch_seconds": {
+      "label": "Screen switch (seconds)",
+      "description": "Seconds each enabled screen stays visible during auto rotation. Independent from Akvorado data refresh.",
+      "type": "integer",
+      "default": 5,
+      "min": 1,
+      "max": 120,
+      "step": 1
+    },
+    "show_traffic": {
+      "label": "Show TRAFFIC",
+      "description": "Show total L3 traffic (external + internal) as a moving average. White value, grey label.",
+      "type": "boolean",
+      "default": true
+    },
+    "show_downl": {
+      "label": "Show DOWNL",
+      "description": "Show only InIfBoundary = external, averaged over the same period as TRAFFIC. Green value and graph.",
+      "type": "boolean",
+      "default": true
+    },
+    "show_upl": {
+      "label": "Show UPL",
+      "description": "Show only InIfBoundary = internal, averaged over the same period as TRAFFIC. Blue-violet value and graph.",
+      "type": "boolean",
+      "default": true
+    },
+    "show_flows": {
+      "label": "Show FLOWS",
+      "description": "Show flow records per second, external + internal, using the moving average.",
+      "type": "boolean",
+      "default": true
+    },
+    "show_peak": {
+      "label": "Show PEAK",
+      "description": "Show the highest total L3 traffic bucket from the Graph + PEAK window (not the moving average).",
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
